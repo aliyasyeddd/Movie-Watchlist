@@ -118,6 +118,7 @@ main {
     align-items: center;
     margin-top: 0;
     gap: 6px;
+    letter-spacing: 3px;
 }
 
 .fa-circle-plus {
