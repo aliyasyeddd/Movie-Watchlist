@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Movie Watchlist</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header class="hero">
+      <img
+        src="./images/hero-image.png"
+        alt="Banner image showcasing movie posters"
+      />
+      <div class="hero-text">
+        <h1>Find your film</h1>
+        <a href="/myWatchlist.html"><h2>My Watchlist</h2></a>
+      </div>
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Search for a movie"
+        />
+        <button id="search-button">Search</button>
+      </div>
+    </header>
+    <main>
+      <div class="explore-box">
+       <i class="fa-solid fa-film"></i>
+        <h3 class="explore">Start exploring</h3>
+      </div>
+    </main>
     <script src="index.js" type="module"></script>
-</body>
+  </body>
 </html>
