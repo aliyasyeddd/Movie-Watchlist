@@ -93,7 +93,8 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 12px;   
+    gap: 12px;
+    text-align: center;   
 }
 
 .fa-film {
@@ -101,8 +102,20 @@ main {
     color: #DFDDDD;
 }
 
+
 .explore {
     font-size: 2.5rem;
     margin-top: 20px;
     color: #DFDDDD;
+    margin-bottom: 8px;
+}
+
+.add-movies-text {
+    color: #363636;
+    font-size: 2rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0;
+    gap: 6px;
 }
