@@ -119,3 +119,7 @@ main {
     margin-top: 0;
     gap: 6px;
 }
+
+.fa-circle-plus {
+    cursor: pointer;
+}
