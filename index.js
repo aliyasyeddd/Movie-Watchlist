@@ -39,7 +39,6 @@ async function fetchMovies() {
         const movieDetails = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`).then(res => res.json());
         fetchedMovies.push(movieDetails)
         renderMovies(movieDetails);
-        // console.log(movieDetails)
     })
 }
 
@@ -64,34 +63,58 @@ function renderMovies(movie) {
             <div class="movie-info2">
                  <p class="movie-runtime">${movie.Runtime}</p>
                  <p class="movie-genre">${movie.Genre}</p>
-                 <div class="watchList-btn">
+                 <button class="watchList-btn">
                     <i class="fa-solid fa-plus-circle "  data-add="${movie.imdbID}"></i>
-                    <p class="watchList-text">watchList</p>
-                 </div>
+                    Watch List
+                 </button>
             </div>
             <p class="movie-description">${movie.Plot}</p>
         </div>
     </div>
     `
     moviesContainer.innerHTML += movieCard;
-    document.addEventListener("click", (e) => {
-        let movieId = e.target.dataset.add
-        
-        //now contains all the data of the one movie the user clicked to add.
-        let addToWatchListMovie = fetchedMovies.find(movie => movie.imdbID === movieId)
-
-        //Get watchList data from localStorage
-        let storedMovies = JSON.parse(localStorage.getItem("movies") || "[]");
-
-        //Check if the selected movie is already saved
-        if (!storedMovies.some(m => m.imdbID === movieId)) {
-            //Add movie to array and save back to localStorage
-            storedMovies.push(addToWatchListMovie);
-            //localStorage can only store string → so we convert to JSON using .stringify().
-            localStorage.setItem("movies", JSON.stringify(storedMovies));  
-        } 
-    })
+    document.addEventListener("click", handleAddToWatchList)
 }
+
+const handleAddToWatchList = (e) => {
+    let movieId = e.target.dataset.add
+    if (movieId) {
+        const watchListBtn = e.target.closest(".watchList-btn");
+        watchListBtn.innerHTML = `
+              <i class="fa-solid fa-circle-check"></i>
+              Added to Watch List
+        `
+        watchListBtn.disabled = true
+    } else return;
+
+     let movieAddedToLocalStorage = fetchedMovies.find(movie => movie.imdbID === movieId)
+     let storedMovies = []
+     storedMovies.push(movieAddedToLocalStorage)
+     localStorage.setItem("movieInfo" , storedMovies(storedMovies))
+
+}
+
+// let movieId = e.target.dataset.add
+// if (!movieId) return;
+
+// //now contains all the data of the one movie the user clicked to add.
+// let addToWatchListMovie = fetchedMovies.find(movie => movie && movie.imdbID === movieId)
+// if (!addToWatchListMovie) {
+//     console.warn("Movie not found in fetchedMovies for ID:", movieId);
+//     return; // exit if movie not found
+// }
+
+
+// //Get watchList data from localStorage
+// let storedMovies = JSON.parse(localStorage.getItem("movies") || "[]");
+
+// //Check if the selected movie is already saved
+// if (!storedMovies.some(movie => movie.imdbID === movieId)) {
+//     //Add movie to array and save back to localStorage
+//     storedMovies.push(addToWatchListMovie);
+//     //localStorage can only store string → so we convert to JSON using .stringify().
+//     localStorage.setItem("movies", JSON.stringify(storedMovies));
+// }
 
 
 
