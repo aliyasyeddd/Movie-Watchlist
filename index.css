@@ -199,20 +199,15 @@ main {
   margin-right: 4px;
 }
 
-.Watchlist-btn {
+.watchList-btn {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 4px;
 }
 
-.fa-circle-plus {
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
-  margin-top: 6px;
-}
 
-.watchlist-text {
+
+.watchList-text {
   font-size: 18px;
   opacity: 0.8;
 }
@@ -220,4 +215,6 @@ main {
 
 .fa-plus-circle {
   cursor: pointer;
+  color: #0e0e0e;
+  font-size: 20px;
 }
