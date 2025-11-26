@@ -1,4 +1,4 @@
-# 🌸 Movie Watchlist App  
+#  Movie Watchlist App  
 
 > A simple, responsive web app that lets users search for movies, add them to a personal watchlist, and remove them when watched — all saved in localStorage.  
 
