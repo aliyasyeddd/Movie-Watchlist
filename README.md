@@ -60,7 +60,7 @@ Key JavaScript concepts and tools practiced while building this project:
 
 ![App Screenshot](./images/demo.png)  
 
-🔗 **Live Demo:** [https://your-demo-link.vercel.app](https://your-demo-link.vercel.app)  
+🔗 **Live Demo:**: coming soon  
 
 ---
 
