@@ -180,10 +180,12 @@ main {
   font-size: 20px;
 }
 
+.movie-runtime {
+  font-size: 18px;
+}
 
-.movie-runtime,
 .movie-genre {
-  font-size: 26px;
+  font-size: 23px;
   opacity: 0.85;
 }
 
@@ -209,20 +211,23 @@ main {
   cursor: pointer;
 }
 
-.watchList-btn,
-.watchList-btn i {
-  color: orange;
+
+.watchList-btn .fa-plus-circle,
+.watchList-btn .watchList-text {
+    color: orange;
 }
 
-.watchList-btn:disabled i,
+.watchList-btn .fa-minus-circle,
+.watchList-btn .remove-text {
+  color: red;
+}
+
+
+
+.watchList-btn:disabled .fa-plus-circle,
 .watchList-btn:disabled {
   cursor: not-allowed;
   font-size: 16px;
   color: green;
 }
 
-.fa-plus-circle,
-.fa-minus-circle {
-  color: #0e0e0e;
-  font-size: 20px;
-}

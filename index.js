@@ -6,7 +6,9 @@ const exploreBox = document.querySelector('.explore-box');
 const moviesContainer = document.querySelector('.movies-container');
 
 
+document.addEventListener("click", handleAddToWatchList);
 searchBtn.addEventListener('click', fetchMovies);
+
 
 async function fetchMovies() {
     const query = movieInput.value.trim()
@@ -26,7 +28,7 @@ async function fetchMovies() {
 
     //if no movies found
     if (!movieData) {
-        moviesContainer.innerHTML = "<p class='no-results'>No movies found.</p>";
+        moviesContainer.innerHTML = "<p class='no-results'>Unable to find what you’re looking for. Please try another search.</p>";
         exploreBox.style.display = "none"
         return
     }
@@ -64,8 +66,8 @@ function renderMovies(movie) {
                  <p class="movie-runtime">${movie.Runtime}</p>
                  <p class="movie-genre">${movie.Genre}</p>
                  <button class="watchList-btn">
-                    <i class="fa-solid fa-plus-circle "  data-add="${movie.imdbID}"></i>
-                    Watch List
+                    <i class="fa-solid fa-plus-circle"  data-add="${movie.imdbID}"></i>
+                    <span class="watchList-text">Watch List</span>
                  </button>
             </div>
             <p class="movie-description">${movie.Plot}</p>
@@ -73,10 +75,9 @@ function renderMovies(movie) {
     </div>
     `
     moviesContainer.innerHTML += movieCard;
-    document.addEventListener("click", handleAddToWatchList)
 }
 
-const handleAddToWatchList = (e) => {
+function handleAddToWatchList(e)  {
     let movieId = e.target.dataset.add
     if (movieId) {
         const watchListBtn = e.target.closest(".watchList-btn");
@@ -89,8 +90,8 @@ const handleAddToWatchList = (e) => {
 
      //Getting old stored movies or empty array
    let storedMovies = JSON.parse(localStorage.getItem("movieInfo")) || [];
-
-    const movieAddedToLocalStorage = fetchedMovies.find(movie => movie.imdbID === movieId);
+   //returning one movie matching with clicked movie id
+   const movieAddedToLocalStorage = fetchedMovies.find(movie => movie.imdbID === movieId);
 
     // Prevent duplicates
     if (!storedMovies.some(movie => movie.imdbID === movieId)) {
