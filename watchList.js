@@ -4,16 +4,16 @@ const exploreBox = document.querySelector('.explore-box');
 // Get movies from localStorage
 let storedMovies = JSON.parse(localStorage.getItem("movieInfo")) || [];
 
-
 (storedMovies.length === 0)
     ? (exploreBox.style.display = "block")
     : (exploreBox.style.display = "none", renderWatchList(storedMovies));
 
-    
+
 document.addEventListener("click", handleRemoveMovieFromWatchList)
 
 
 function renderWatchList(movies) {
+    watchList.innerHTML = "";
     movies.forEach(movie => {
         let movieCard = ""
         movieCard += `
@@ -49,8 +49,14 @@ function renderWatchList(movies) {
 }
 
 function handleRemoveMovieFromWatchList(e) {
-    if(e.target.dataset.remove) {
-        console.log(e.target.dataset.remove)
+    const movieId = e.target.dataset.remove
+    if(movieId) {
+        storedMovies = storedMovies.filter(movie => movie.imdbID !== movieId)
+        localStorage.setItem("movieInfo", JSON.stringify(storedMovies))
+        renderWatchList(storedMovies)
+    }
+    if (storedMovies.length === 0) {
+        exploreBox.style.display = "block";
     }
 }
 
