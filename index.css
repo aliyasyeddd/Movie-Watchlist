@@ -69,6 +69,11 @@ header img {
   margin-left: 20px;
 }
 
+.search-input:focus {
+  outline: none;
+  background: white;
+}
+
 #search-button {
   color: #374151;
   margin: 0;
@@ -85,7 +90,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    padding-top: 60px;
 }
 
 .explore-box {
@@ -103,7 +108,8 @@ main {
 }
 
 
-.explore {
+.explore,
+.no-results {
     font-size: 2.5rem;
     margin-top: 20px;
     color: #DFDDDD;
@@ -121,6 +127,97 @@ main {
     letter-spacing: 3px;
 }
 
+.movie-card {
+  width: 800px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+ img {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.movie-info1,
+.movie-info2 {
+  display: flex;
+  align-items: center;
+  gap: 18px; 
+}
+
+
+.movie-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.rating-box {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.movie-title,
+.movie-rating {
+  margin: 0; 
+  line-height: 1;
+}
+
+.movie-rating {
+  font-size: 20px;
+}
+
+
+.movie-runtime,
+.movie-genre {
+  font-size: 26px;
+  opacity: 0.85;
+}
+
+.movie-description {
+  opacity: 0.9;
+  font-size: 1.5rem;
+  color: #6B7280;
+  margin-top: 10px;
+}
+
+.fa-star {
+  color: gold;
+  margin-right: 4px;
+}
+
+.Watchlist-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .fa-circle-plus {
-    cursor: pointer;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 6px;
+}
+
+.watchlist-text {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+
+.fa-plus-circle {
+  cursor: pointer;
 }
